@@ -81,4 +81,29 @@
 			
 		}
 	}
+
+	function updatepost($title , $body , $id)
+	{
+		// if(!$title || !$body)
+		// {
+		// 	$missing= !$title ? "Title":"Body ";
+		// 	return '<h5 style="color: RED">'.$missing." is missing".'</h5>';
+		// }
+		include './includes/db.php';
+		 if(!$conn){
+            return '<h5 class="mt-3" style="color: red;"> Connection Problem </h5>';
+        }
+		try {
+			$sql='UPDATE post SET title=:title, body=:body WHERE id=:id';
+			$stmnt=$conn->prepare($sql);
+			$stmnt->execute([':title'=>$title,
+										':body'=>$body,
+										':id'=>$id]);
+			$conn=null;
+			return '<h5 style="color: GREEN">'."Successfuly Updated ".$id.'</h5>';
+			// header('location: ../includes/login.php');
+		} catch (Exception $e) {
+			
+		}
+	}
 ?>

@@ -1,7 +1,7 @@
 <?php
 include './includes/header.php';
 include './includes/navbar.php';
-include './utility/utils.php';
+// include './utility/utils.php';
 // include './allpost.php';
 if (!isset($_SESSION['user'])) {
   header("Location: http://localhost/project1/includes/login.php");
@@ -54,14 +54,26 @@ if (!isset($_SESSION['user'])) {
     <form action="#" method="post">
       <div class="mb-3 mt-5">
         <label for="exampleFormControlInput1" class="form-label">Title</label>
-        <input type="text" value="'.$utitle.'" class="form-control" />
+        <input type="text" value="'.$utitle.'" class="form-control" name="title"/>
       </div>
       <div class="mb-3 mt-4">
         <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-        <textarea class="form-control" id="mytextarea" rows="3" name="body">'.$utitle.'</textarea>
+        <textarea class="form-control" id="mytextarea" rows="3" name="body">'.$ubody.'</textarea>
       </div>
       <input name="post" type="submit" class="btn btn-primary" value="Post">
-    </form>
+    </form>';
+         if (isset($_POST["post"])) {
+
+              $title=$_POST["title"];
+              echo $title;
+              $body=$_POST["body"];
+              include './utility/utils.php';
+              $error=updatepost($title , $body , $fix);
+              if ($error) {
+                  echo $error;
+              }
+         }
+     echo'
     
     </div>';
   ?>

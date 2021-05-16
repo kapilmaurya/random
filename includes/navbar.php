@@ -33,16 +33,15 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			  <button class="btn btn-secondary dropdown-toggle" type="" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false"> User
 			  </button>
 			  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-			 	 <li><a class="dropdown-item" href="#">'.$log->username.'</a></li>
+			 	 <li><a class="dropdown-item" href="#"><h5>'.$log->username.'</h5></a></li>
 			 	 <li><hr class="dropdown-divider"></li>
 			    <li><a class="dropdown-item active" href="allpost.php">All Posts</a></li>
-			    <li><a class="dropdown-item" href="#">Update Post</a></li>
-			    <li><a class="dropdown-item" href="#">Delete Post</a></li>
+			    <li><a class="dropdown-item" href="allpost.php">Update Post</a></li>
+			    <li><a class="dropdown-item" href="includes/logout.php">Logout</a></li>
 			    
 			    
 			  </ul>
 			</div>
-	      <a class="btn btn-outline-success" href="includes/logout.php">Logout</a>
 	      </form>';
       	}	
       echo'
